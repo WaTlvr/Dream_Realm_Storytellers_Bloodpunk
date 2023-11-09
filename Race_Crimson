@@ -1,0 +1,47 @@
+RaceList["crimson"] = {
+	regExpSearch : /^(?=.*crimson).*$/i, 
+	name : "Crimson",
+	source : [["GtT", 7]],
+	plural : "Crimsons",
+	size : 3,
+	speed : {
+		walk : { spd : 0, enc : 0 }
+	},
+	scoresGeneric : true,
+	trait : "crimson" + (typePF ? "\n " : "\t") +
+	"\u2022 Vampiric Nature: I don't need food/drink/air. I still need sleep. I need to drink fresh blood everyday or suffer from hunger" +
+	"\n \u2022 Crimson Destiny: Each time I die, I come back from the dead 1d4 hours later. Everytime  I comeback using this ability, the required amount of death save decreases by 1. All diseases are removed and lost limbs are restored when this feature is used" +
+	"\n \u2022 Invoke power within: As an action, I can perform a unique action to give my allies within 30 ft that can see/hear me +1 bonus to attack rolls/ability checks/saving throws (1 of my choice) for 1 min.LR to recharge",
+
+	features : {
+		"invoke power within" : { 
+			name : "Invoke the power within",
+			minlevel : 1,
+			usages : 1,
+			recovery : "long rest",
+			action : ["action", ""],
+		},
+		
+
+	},
+	vision : [["Darkvision", 60]],
+	
+	useFromPreviousRace : {
+		message : "If you replace a race with the Crimson Templates lineage, you keep all elements of that race:"+
+		
+		"\n\nPlease use this option. I'm not coding one Crimson Templates version for each available race. :"+
+		desc(["idk, it didn't have default size",
+		"idk what the default proficiencies are",
+		"ask your gm what your default languages will be"], "\n   \u2022 "),
+		defaultTraits : {
+			skillstxt : "just chose a base race first"
+		},
+		gainTraits : ["size", "plural", "age", "height", "weight", "heightMetric", "weightMetric", "languageProfs", "skillstxt", "skills", "speed", "toolProfs", "weaponprofs", "armor", "skills", "savetxt", "vision", "dmgres", "improvements", "scores", "trait", "abilitySave", "variants", "spellcastingAbility", "spellcastingBonus", "features", "trait"],
+		replaceNameInTrait : ["Crimson", "prefix",]
+	}
+};
+
+/* Notes 
+	At this point, trait and feat does not seem to carry over properly
+  ex: when creating Crimson dragonborn, breathweapon seems to disappear from feat section 
+*/
